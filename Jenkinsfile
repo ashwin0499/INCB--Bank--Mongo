@@ -25,7 +25,5 @@ pipeline{
                 echo 'creating docker image...'
             }
         }
-
     }
-
 }
