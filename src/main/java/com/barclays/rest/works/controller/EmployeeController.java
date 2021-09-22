@@ -2,10 +2,13 @@ package com.barclays.rest.works.controller;
 
 import java.util.List;
 
+import com.barclays.rest.works.entity.Account;
+import com.barclays.rest.works.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import com.barclays.rest.works.contract.IEmployeeService;
@@ -80,6 +83,12 @@ public class EmployeeController {
 	public String deleteEmployee(@PathVariable("empId") int empId){
 
 		return service.deleteEmployee(empId);
+	}
+
+	@PutMapping("/update/account/{empId}")
+	public ResponseEntity<?> update(@RequestBody Account account,@PathVariable("empId") int empId) {
+		Employee updatedAccount = service.updateAccount(account,empId);
+		return ResponseEntity.ok().body(updatedAccount);
 	}
 }
 

@@ -1,10 +1,10 @@
 package com.barclays.rest.works.service;
 
 import java.util.List;
+import java.util.Optional;
 
+import com.barclays.rest.works.entity.Account;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.mongodb.core.query.Criteria;
-import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
 
 import com.barclays.rest.works.contract.IEmployeeService;
@@ -72,5 +72,12 @@ public class EmployeeService implements IEmployeeService {
 
 		return null;
 	}
-	
+
+	@Override
+	public Employee updateAccount(Account account, int empId) {
+		Employee employee=repo.findById(empId).get();
+		employee.setAccount(account);
+		return repo.save(employee);
+	}
+
 }

@@ -2,8 +2,8 @@ package com.barclays.rest.works.contract;
 
 import java.util.List;
 
+import com.barclays.rest.works.entity.Account;
 import com.barclays.rest.works.entity.Employee;
-import org.springframework.web.bind.annotation.RequestBody;
 
 public interface IEmployeeService {
 	public Employee insertEmployee(Employee employee); 
@@ -18,4 +18,5 @@ public interface IEmployeeService {
 	public List<Employee> getEmployeesBetweenSalary(double minSal, double maxSal);
 
 
+	Employee updateAccount(Account account, int empId);
 }
