@@ -1,6 +1,5 @@
 pipeline{
     agent any
-
     stages {
         
         stage('compile'){
@@ -26,7 +25,5 @@ pipeline{
                 echo 'creating docker image...'
             }
         }
-
     }
-
 }
